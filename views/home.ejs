@@ -18,20 +18,25 @@
     </div>
   </div>
   <div class="row my-3">
-    <% products.forEach(function(prod) { %>
-      <div class="col-12 col-md-4">
-        <div class="card">
-          <img class="card-img-top img-fluid" src='<%= prod.imageUrl %>'' alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title"><%= prod.title %></h5>
-            <p class="card-text"><%= prod.description %></p>
-            <p class="card-text">€ <%= prod.price %></p>
-            <a href="/product/<%= prod._id %>" class="btn btn-primary">Go somewhere</a>
-            <a href="/add-to-cart/<%= prod.id %>" class="btn btn-info btn-outline">Add to cart</a>
+    <% if( products.length > 0 ) { %>
+      <% products.forEach(function(prod) { %>
+        <div class="col-12 col-md-4">
+          <div class="card">
+            <img class="card-img-top img-fluid" src='<%= prod.imageUrl %>'' alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><%= prod.title %></h5>
+              <p class="card-text"><%= prod.description %></p>
+              <p class="card-text">€ <%= prod.price %></p>
+              <a href="/product/<%= prod._id %>" class="btn btn-primary">Go somewhere</a>
+              <a href="/add-to-cart/<%= prod.id %>" class="btn btn-info btn-outline">Add to cart</a>
+            </div>
           </div>
         </div>
-      </div>
-   <% }); %> 
+     <% }); %> 
+    <% }  else { %>
+      <div class="col-12">No products</div>
+    <% } %>
+    
   </div>
 </div>
 <%- include('./includes/footer.ejs') %>
