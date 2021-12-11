@@ -10,8 +10,11 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 const shopRoutes = require('./routes/shopRoutes');
+const adminRoutes = require('./routes/adminRoutes');
+
 
 app.use(shopRoutes);
+app.use('/admin',adminRoutes);
 
 mongoConnect( ( ) => {
     app.listen(3000);
