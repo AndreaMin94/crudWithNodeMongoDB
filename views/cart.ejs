@@ -1,0 +1,31 @@
+<%- include('./includes/head.ejs') %>
+
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-12">
+               <h1>Your cart</h1>
+            </div>
+            <div class="col-12">
+              <a href="/create-order" class="btn btn-warning">Checkout</a>
+           </div>
+        </div>
+        <div class="row my-3">
+            <% products.forEach(function(prod) { %>
+              <div class="col-12 col-md-4">
+                <div class="card">
+                  <img class="card-img-top img-fluid" src='<%= prod.imageUrl %>'' alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= prod.name %></h5>
+                    <p class="card-text"><%= prod.description %></p>
+                    <p class="card-text">€ <%= prod.price %></p>
+                    <p class="card-text">Qty: <%= prod.cartItem.quantity %></p>
+                    <a href="/product/<%= prod.id %>" class="btn btn-primary">Go somewhere</a>
+                    <a href="/add-to-cart/<%= prod.id %>" class="btn btn-info btn-outline">Add to cart</a>
+                  </div>
+                </div>
+              </div>
+           <% }); %> 
+          </div>
+    </div>
+
+<%- include('./includes/footer.ejs') %>

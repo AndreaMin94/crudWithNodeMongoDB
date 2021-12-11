@@ -1,0 +1,42 @@
+<%- include('../includes/head.ejs') %>
+
+<div class="container">
+    <div class="row my-3">
+        <div class="col-12 col-md-8">
+                <% if(isEdit) { %>
+                    <h1 class="my-3"> Edit Product </h1>
+                <% } else {%>
+                    <h1 class="my-3"> Create New Product </h1>
+                <% } %>
+            <form action="<% if(isEdit){ %>/admin/edit-product<% } else { %>/admin/store-product<% } %>" method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nome del prodotto</label>
+                    <input type="text" class="form-control" id="name" name="title" 
+                    value="<% if(isEdit){ %><%= product.title %><% } %>">
+                </div>
+                <div class="mb-3">
+                    <label for="imageUrl" class="form-label">Immagine del prodotto</label>
+                    <input type="text" class="form-control" id="imageUrl" name="imageUrl"
+                    value="<% if(isEdit){ %><%= product.imageUrl %><% } %>">
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Prezzo del prodotto</label>
+                    <input type="number" step="0.01" class="form-control" id="price" name="price"
+                    value="<% if(isEdit){ %><%= product.price %><% } %>">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Descrizione del prodotto</label>
+                   <textarea class="form-control" name="description" id="descirption" cols="30" rows="5"><% if(isEdit){ %><%= product.description %><% } %></textarea>
+                </div>
+                <% if(isEdit){ %>
+                 <input type="hidden" name="productId" value="<%= product._id %>"> 
+                 <% } %>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include('../includes/footer.ejs') %>

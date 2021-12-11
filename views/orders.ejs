@@ -1,0 +1,25 @@
+<%- include('./includes/head.ejs') %>
+
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-12">
+               <h1>Your Orders</h1>
+            </div>
+        </div>
+       <% orders.forEach(order => { %>
+        <div class="row my-5">
+            <div class="col-12">
+               <h3>Order n° <%= order.id %></h3>
+                <ul>
+                    <% order.products.forEach(item => { %>
+                        <li><%= item.name %> ( <%= item.orderItem.quantity %> )</li>
+                   <% }) %>
+                </ul>
+               
+            </div>
+        </div>
+        <% }); %>
+       
+    </div>
+
+<%- include('./includes/footer.ejs') %>
