@@ -14,7 +14,7 @@
             <h5 class="card-title"><%= prod.title %></h5>
             <p class="card-text"><%= prod.description %></p>
             <p class="card-text">€ <%= prod.price %></p>
-            <a href="/admin/edit-product/<%= prod._id %>" class="btn btn-primary">Edit</a>
+            <a href="/admin/edit-product/<%= prod._id %>?edit=true" class="btn btn-primary">Edit</a>
             <a href="/admin/delete/<%= prod._id %>" class="btn btn-info btn-outline">Delete</a>
           </div>
         </div>
