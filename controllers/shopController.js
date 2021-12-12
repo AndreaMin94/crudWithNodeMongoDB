@@ -3,3 +3,4 @@ exports.getHome = (req,res,next) => {
         products: []
     });
 }
+
