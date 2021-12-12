@@ -33,12 +33,17 @@ exports.getProductForm = (req,res,next) => {
 }
 
 exports.storeProduct = (req,res,next) => {
+    let product;
     let title = req.body.title;
     let description = req.body.description;
     let price = req.body.price;
     let imageUrl = req.body.imageUrl;
     let productId = req.body.productId;
-    let product = new Product(title, price, description, imageUrl, new mongodb.ObjectId(productId));
+    if(!productId){
+        product = new Product(title, price, description, imageUrl, null);
+    } else {
+        product = new Product(title, price, description, imageUrl, new mongodb.ObjectId(productId));
+    }
     product.save()
     .then(result => {
         res.redirect('/')
