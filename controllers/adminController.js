@@ -53,5 +53,8 @@ exports.storeProduct = (req,res,next) => {
 
 exports.deleteProduct = (req,res,next) => {
     let productId = req.body.productId;
-
+    Product.deleteById(productId)
+        .then( () => {
+            res.redirect('/admin/home');
+        })
 }

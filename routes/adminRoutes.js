@@ -8,6 +8,6 @@ router.get('/home', adminController.getAdminHome);
 router.get('/create-product', adminController.getProductForm);
 router.get('/edit-product/:productId', adminController.getProductForm);
 router.post('/store-product', adminController.storeProduct);
-router.post('/product-delete', adminController.deleteProduct);
+router.post('/delete-product', adminController.deleteProduct);
 
 module.exports = router;
